@@ -13,10 +13,10 @@ class Todo (db.Model):
     sno= db.Column(db.Integer, primary_key=True)
     title=db.Column(db.String(100), nullable=False)
     desc=db.Column(db.String(500), nullable=False)
-    date_created=db.Column(db.DateTime, default=datetime.utcnow)
+    date_created=db.Column(db.DateTime, default=datetime.now)
 
-    def __repr__(self) -> str:
-        return f"{self.sno} - {self.title}"
+    # def __repr__(self) -> str:
+    #     return f"{self.sno} - {self.title}"
 
 
 @app.route('/', methods=['GET','POST'])
@@ -52,6 +52,11 @@ def delete(sno):
     db.session.delete(delTodo)
     db.session.commit()
     return redirect('/')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 
 if __name__=="__main__":
     app.run(debug=True, port=3000)
