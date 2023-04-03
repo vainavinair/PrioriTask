@@ -9,7 +9,7 @@
         integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 </head>
 
-<body class="d-flex flex-column">
+<body class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">PrioriTask</a>
@@ -29,24 +29,25 @@
     {% block body %}
 
     {% endblock body %}
-</body>
-<footer class="bg-light py-2  ">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <h5>PrioriTask</h5>
-                <p>Prioritize your life with PrioriTask.</p>
-            </div>
-            <div class="col-md-6">
-                <h5>Links</h5>
-                <ul class="list-inline">
-                    <li class="list-inline-item"><a href="https://github.com/vainavinair" target="_blank">GitHub</a></li>
-                    <li class="list-inline-item"><a href="https://www.linkedin.com/in/vainavi-nair/" target="_blank">LinkedIn</a></li>
-                    <li class="list-inline-item"><a href="mailto:vainavinair2009558@gmail.com" target="_blank">Email Us</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</footer>
 
+    <footer class="bg-light mt-auto  ">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <h5>PrioriTask</h5>
+              <p>Prioritize your life with PrioriTask.</p>
+            </div>
+            <div class="col-md-6 d-sm-block">
+              <h5>Links</h5>
+              <ul class="list-inline">
+                <li class="list-inline-item"><a href="https://github.com/vainavinair" target="_blank">GitHub</a></li>
+                <li class="list-inline-item"><a href="https://www.linkedin.com/in/vainavi-nair/" target="_blank">LinkedIn</a></li>
+                <li class="list-inline-item"><a href="mailto:vainavinair2009558@gmail.com" target="_blank">Email Us</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+      
+</body>
 </html>

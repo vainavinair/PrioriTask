@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
-{% block body %}
 
+{% block body %}
 
 <div class="container my-3">
     <h2> Add Tasks</h2>
@@ -32,36 +32,35 @@
         No Tasks Found. Add a new Task
     </div>
     {% else %}
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">SR.No</th>
-                <th scope="col">Title</th>
-                <th scope="col">Disc</th>
-                <th scope="col">Due Date</th>
-                <th scope="col">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for todo in alltodo %}
-            <tr>
-                <th scope="row">{{ loop.index }}</th>
-                <td>{{ todo.title }}</td>
-                <td>{{ todo.desc }}</td>
-                <td>{{ todo.due_date.strftime('%d %B %Y') }}</td>
-
-                <td>
-                    <a href="/update/{{ todo.sno }}" type="button" class="btn btn-outline-primary btn-sm mx-1">
-                        Update
-                    </a>
-                    <a href="/delete/{{ todo.sno }}" type="button" class="btn btn-outline-primary btn-sm mx-1">
-                        Delete
-                    </a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">SR.No</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Disc</th>
+                    <th scope="col">Due Date</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for todo in alltodo %}
+                <tr>
+                    <th scope="row">{{ loop.index }}</th>
+                    <td>{{ todo.title }}</td>
+                    <td>{{ todo.desc }}</td>
+                    <td>{{ todo.due_date.strftime('%d %B %Y') }}</td>
+                    <td>
+                        <a href="/update/{{ todo.sno }}" type="button" class="btn btn-outline-primary btn-sm mx-1">
+                            Update
+                        </a>
+                        <a href="/delete/{{ todo.sno }}" type="button" class="btn btn-outline-primary btn-sm mx-1">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     {% endif %}
 </div>
 {% endblock body %}
