@@ -18,6 +18,11 @@
                 <input type="text" name='desc' class="form-control" id="desc" value="{{todo.desc}}">
             </div>
 
+            <div class="mb-3">
+                <label for="due">Due Date</label>
+                <input type="date" id="due" name="due" required value="{{todo.due_date}}">
+            </div>
+
             <button type="submit" class="btn btn-primary">Update</button>
         </form>
     </div>

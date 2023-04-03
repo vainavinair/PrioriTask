@@ -7,18 +7,19 @@
     <form action="/" method="post">
         <div class="mb-3">
             <label for="title" class="form-label">Task Name</label>
-            <input type="text" name='title' class="form-control" id="title" aria-describedby="emailHelp">
+            <input type="text" name='title' class="form-control" id="title" aria-describedby="emailHelp" required>
 
         </div>
         <div class="mb-3">
             <label for="desc" class="form-label">Task Description</label>
-            <input type="text" name='desc' class="form-control" id="desc">
+            <input type="text" name='desc' class="form-control" id="desc" required>
         </div>
 
         <div class="mb-3">
-            <label for="birthday">Due Date</label>
-            <input type="date" id="due" name="due">
+            <label for="due">Due Date</label>
+            <input type="date" id="due" name="due" required>
         </div>
+
 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
@@ -37,7 +38,7 @@
                 <th scope="col">SR.No</th>
                 <th scope="col">Title</th>
                 <th scope="col">Disc</th>
-                <th scope="col">Time Created</th>
+                <th scope="col">Due Date</th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>
@@ -47,7 +48,8 @@
                 <th scope="row">{{ loop.index }}</th>
                 <td>{{ todo.title }}</td>
                 <td>{{ todo.desc }}</td>
-                <td>{{todo.date_created.strftime('%m/%d/%Y at %I:%M %p')}}</td>
+                <td>{{ todo.due_date.strftime('%d %B %Y') }}</td>
+
                 <td>
                     <a href="/update/{{ todo.sno }}" type="button" class="btn btn-outline-primary btn-sm mx-1">
                         Update

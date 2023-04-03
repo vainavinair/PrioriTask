@@ -13,10 +13,9 @@ class Todo (db.Model):
     sno= db.Column(db.Integer, primary_key=True)
     title=db.Column(db.String(100), nullable=False)
     desc=db.Column(db.String(500), nullable=False)
-    date_created=db.Column(db.DateTime, default=datetime.now)
+    due_date=db.Column(db.DateTime, nullable=True)
 
-    # def __repr__(self) -> str:
-    #     return f"{self.sno} - {self.title}"
+
 
 
 @app.route('/', methods=['GET','POST'])
@@ -24,27 +23,32 @@ def hell_world():
     if request.method=='POST':
         title = request.form['title']
         desc=request.form['desc']
-        todo= Todo(title=title,desc=desc)
+        due_date_str=request.form['due']
+        due_date = datetime.strptime(due_date_str, '%Y-%m-%d')
+        todo= Todo(title=title,desc=desc,due_date= due_date)
         db.session.add(todo)
         db.session.commit()
     
-    allTodo=Todo.query.all()
-    return render_template('index.html',alltodo=allTodo)
+    all_todo=Todo.query.all()
+    return render_template('index.html',alltodo=all_todo)
 
 @app.route('/update/<int:sno>', methods=['GET','POST'])
 def update(sno):
     if request.method=='POST':
         title = request.form['title']
         desc=request.form['desc']
-        upTodo = Todo.query.filter_by(sno=sno).first()
-        upTodo.title=title
-        upTodo.desc=desc
-        db.session.add(upTodo)
+        due_date_str=request.form['due']
+        due_date = datetime.strptime(due_date_str, '%Y-%m-%d')
+        up_todo = Todo.query.filter_by(sno=sno).first()
+        up_todo.title=title
+        up_todo.desc=desc
+        up_todo.due_date=due_date
+        db.session.add(up_todo)
         db.session.commit()
         return redirect('/')
 
-    upTodo = Todo.query.filter_by(sno=sno).first()
-    return render_template('update.html',todo=upTodo)
+    up_todo = Todo.query.filter_by(sno=sno).first()
+    return render_template('update.html',todo=up_todo)
 
 @app.route('/delete/<int:sno>')
 def delete(sno):
