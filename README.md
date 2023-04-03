@@ -5,7 +5,7 @@ PrioriTask is a simple Todo list web app built using Flask.
 
 PrioriTask is an easy-to-use task management application that helps users stay organized and productive. It offers a clean and intuitive interface that makes it easy to create, track, and prioritize tasks.
 
-<a href="prioritask.up.railway.app"> PrioriTask</a>
+<a href="https://prioritask.up.railway.app/"> PrioriTask</a>
 
 ## Features
 
